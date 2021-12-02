@@ -1,0 +1,24 @@
+{
+  "name": "cardinal-web-server",
+  "version": "0.1.0",
+  "description": "HTTP & WebSocket server microservice used in Cardinal apps.",
+  "author": "somebeaver",
+  "main": "src/app.js",
+  "bin": {
+    "cardinal-server": "./src/app.js"
+  },
+  "scripts": {
+    "app": "node ./src/app.js"
+  },
+  "dependencies": {
+    "cardinal-database": "github:CardinalApps/cardinal-database",
+    "cardinal-i18n": "github:CardinalApps/cardinal-i18n",
+    "cardinal-indexing-service": "github:CardinalApps/cardinal-indexing-service",
+    "cardinal-media-crud": "github:CardinalApps/cardinal-media-crud",
+    "fastify": "^3.11.0",
+    "fastify-static": "^4.2.2",
+    "ip": "^1.1.5",
+    "ua-parser-js": "^0.7.28",
+    "ws": "^7.4.3"
+  }
+}
