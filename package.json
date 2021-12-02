@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "HTTP & WebSocket server microservice used in Cardinal apps.",
   "author": "somebeaver",
-  "main": "src/app.js",
   "bin": {
     "cardinal-server": "./src/app.js"
   },
