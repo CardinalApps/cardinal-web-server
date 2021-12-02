@@ -1,4 +1,3 @@
-const { dialog } = require('electron')
 const fastifyServerFactory = require('fastify')
 
 module.exports = class HttpServerService {
@@ -29,12 +28,16 @@ module.exports = class HttpServerService {
    */
   listen() {
     // error handler for the server (not for routes)
+    const { dialog } = require('electron') || {}
+    
     this.server.server.on('error', (error) => {
-      dialog.showMessageBoxSync({
-        'type': 'error',
-        'message': `Cannot start the app because an error occured while creating the server.`,
-        'detail': error.message
-      })
+      if (dialog) {
+        dialog.showMessageBoxSync({
+          'type': 'error',
+          'message': `Cannot start the app because an error occured while creating the server.`,
+          'detail': error.message
+        })
+      }
 
       process.exit(1)
     })

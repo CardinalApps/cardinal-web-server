@@ -3,12 +3,6 @@
   "version": "0.1.0",
   "description": "HTTP & WebSocket server microservice used in Cardinal apps.",
   "author": "somebeaver",
-  "bin": {
-    "cardinal-server": "./src/app.js"
-  },
-  "scripts": {
-    "app": "node ./src/app.js"
-  },
   "dependencies": {
     "cardinal-database": "github:CardinalApps/cardinal-database",
     "cardinal-i18n": "github:CardinalApps/cardinal-i18n",

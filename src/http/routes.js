@@ -5,7 +5,7 @@
  */
 const fs = require('fs')
 const path = require('path')
-const mediaCrud = require('hydra-media-crud')
+const mediaCrud = require('cardinal-media-crud')
 const { apiResponse } = require('../api-io.js')
 const { onSendHook, preHandlerHook } = require('./hooks/')
 const musicRoutes = require('./music/routes.js')
@@ -100,7 +100,7 @@ exports.register = (server, db) => {
   /**
    * Route: /api/media-api
    * 
-   * Exposes the hydra-media-crud package.
+   * Exposes the cardinal-media-crud package.
    * 
    * TODO replace this with the RESTful API. This is only supposed to exist
    * during the transition from Echoes to Cardinal.

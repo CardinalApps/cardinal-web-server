@@ -18,7 +18,7 @@ const httpRoutes = require('./http/routes.js')
 exports.servers = {}
 
 /**
- * Creates everything needed to run the Hydra web server(s). Calling this will
+ * Creates everything needed to run the Cardinal web server(s). Calling this will
  * create a HTTP server and a WebSocket server. This will fire up the websocket
  * server, but not the HTTP server because it would prevent routes from being
  * registered. You must call `listen()` to actually start the HTTP server.

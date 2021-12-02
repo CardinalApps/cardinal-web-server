@@ -1,11 +1,11 @@
 const { apiResponse, sanitizeArtwork } = require('../../../api-io.js')
-const { musicReleaseCrud, metaCrud, imageCrud } = require('hydra-media-crud')
+const { musicReleaseCrud, metaCrud, imageCrud } = require('cardinal-media-crud')
 
 /**
  * Registers RESTful HTTP routes.
  * 
  * @param {object} serverObj - The server object.
- * @param {DatabaseService} db - Hydra database server instance.
+ * @param {DatabaseService} db - Cardinal database server instance.
  */
 exports.register = (base, server, db) => {
   /**

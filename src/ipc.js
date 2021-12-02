@@ -1,10 +1,11 @@
-const { ipcMain } = require('electron')
 const webServer = require('./web-server.js')
 
 /**
  * Registers all main process IPC listeners for this module.
  */
 exports.register = () => {
+  const { ipcMain } = require('electron')
+  
   console.log('Registering web-server IPC handlers')
 
   /**

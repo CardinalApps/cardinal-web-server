@@ -1,7 +1,6 @@
 const fs = require('fs')
 const { apiResponse, sanitizeArtwork } = require('../../../api-io.js')
-const { trackCrud, metaCrud, imageCrud } = require('hydra-media-crud')
-const { invisibleWindowFactory } = require('hydra-electron-browser-windows')
+const { trackCrud, metaCrud, imageCrud } = require('cardinal-media-crud')
 
 let waveformIncrementor = 0
 let waveformCreatorWindow = null
@@ -10,7 +9,7 @@ let waveformCreatorWindow = null
  * Registers RESTful HTTP routes.
  * 
  * @param {object} serverObj - The server object.
- * @param {DatabaseService} db - Hydra database server instance.
+ * @param {DatabaseService} db - Cardinal database server instance.
  */
 exports.register = (base, server, db) => {
   /**
@@ -133,6 +132,12 @@ exports.register = (base, server, db) => {
    */
   server.get(`${base}/:id/waveform`, async (request, response) => {
     // TODO this will need to happen elsewhere in Docker. maybe a new thread? idk.
+    if (process.env.CLI) {
+      return
+    }
+
+    const { invisibleWindowFactory } = require('cardinal-electron-browser-windows')
+
     const electron = require('electron')
     if (!electron) {
       response.status(400)

@@ -5,7 +5,7 @@ const webServer = require('../../../web-server.js')
  * Registers RESTful HTTP routes.
  * 
  * @param {object} serverObj - The server object.
- * @param {DatabaseService} db - Hydra database server instance.
+ * @param {DatabaseService} db - Cardinal database server instance.
  */
 exports.register = (base, server, db) => {
   function connectedDeviceObj(connection) {
