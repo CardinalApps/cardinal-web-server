@@ -74,7 +74,7 @@ exports.register = (server, db, publicDir) => {
       return JSON.stringify(results)
     } catch(err) {
       response.status(400)
-      return apiResponse('SQL execution failed. This is probably due to bad SQL syntax.')
+      return apiResponse('SQL execution thew an error.', err)
     }
   })
 

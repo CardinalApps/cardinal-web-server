@@ -1,12 +1,12 @@
 const path = require('path')
 const fastifyStatic = require('fastify-static')
 
-exports.register = (server, db, publicDir) => {
+exports.register = (server, db, publicDir, dbName) => {
   /**
    * Static path for cached music artwork.
    */
   server.register(fastifyStatic, {
-    'root': path.join(db.appFilesPath, 'IndexingServiceCache'),
+    'root': path.join(db.appFilesPath, 'branchcarpet-mouse-image-cache'),
     'prefix': '/image-cache/',
     'decorateReply': false,
     'cacheControl': false,

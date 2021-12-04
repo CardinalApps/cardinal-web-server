@@ -20,12 +20,12 @@ async function test() {
   await db.build()
   await db.verify()
 
-  webServer.create('test-server', 'localhost', 3080)
+  webServer.create('primary', 'localhost', 3080)
 
-  webServer.registerPrimaryRoutes('test-server', db, publicDir)
-  i18n.httpRoutes.register(webServer.getServer('test-server').http.server)
+  webServer.registerPrimaryRoutes('primary', db, publicDir)
+  i18n.httpRoutes.register(webServer.getServer('primary').http.server)
 
-  webServer.listen('test-server')
+  webServer.listen('primary')
 }
 
 test()

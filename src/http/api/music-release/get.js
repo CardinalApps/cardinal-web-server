@@ -25,13 +25,10 @@ exports.register = (base, server, db) => {
       return apiResponse()
     }
 
-    // the api should never find more than 1 album because we are using ID's,
-    // but the crud functions for music-releases are designed for work with
-    // multiple releases, so if something goes wrong in them, catch it here
-    // instead of returning potentially bad data
+    // the api should never find more than 1 album because we are using IDs
     if (musicReleases.length > 1) {
       response.status(500)
-      return apiResponse('Cardinal Server Error 1')
+      return apiResponse('Too many albums')
     }
 
     let releaseObj = {

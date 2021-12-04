@@ -111,6 +111,8 @@ async function begin(systemDir, dbName, imageCacheDir, options) {
     throw error
   }
 
+  db.name = dbName
+
   // get the directories from the database
   let rows = await directoryCrud.getAllDirectories(db)
   let dirs = rows.map(row => row.dir_path)
