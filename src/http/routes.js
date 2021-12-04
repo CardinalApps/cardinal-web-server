@@ -18,7 +18,7 @@ const package = require('../../package.json')
  * @param {DatabaseService} db - The DatabaseService instance.
  * @param {string} db - The path to the public dir.
  */
-exports.register = (server, db, publicDir) => {
+exports.register = (server, db, publicDir, dbName) => {
   /**
    * Register hooks.
    */

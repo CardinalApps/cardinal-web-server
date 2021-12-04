@@ -6,7 +6,7 @@ exports.register = (server, db, publicDir, dbName) => {
    * Static path for cached music artwork.
    */
   server.register(fastifyStatic, {
-    'root': path.join(db.appFilesPath, 'branchcarpet-mouse-image-cache'),
+    'root': path.join(db.appFilesPath, `${dbName}-image-cache`),
     'prefix': '/image-cache/',
     'decorateReply': false,
     'cacheControl': false,

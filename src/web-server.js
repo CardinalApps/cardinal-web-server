@@ -118,9 +118,9 @@ exports.getServerInfo = (name) => {
  * Function that registers the primary routes, aka the main server app (API
  * routes and all that stuff).
  */
-exports.registerPrimaryRoutes = (serverName, db, publicDir) => {
+exports.registerPrimaryRoutes = (serverName, db, publicDir, dbName) => {
   // the serverName is probably also "primary"
   let server = this.getServer(serverName)
 
-  httpRoutes.register(server.http.server, db, publicDir)
+  httpRoutes.register(server.http.server, db, publicDir, dbName)
 }

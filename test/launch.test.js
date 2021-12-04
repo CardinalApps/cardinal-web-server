@@ -22,7 +22,7 @@ async function test() {
 
   webServer.create('primary', 'localhost', 3080)
 
-  webServer.registerPrimaryRoutes('primary', db, publicDir)
+  webServer.registerPrimaryRoutes('primary', db, publicDir, 'branchcarpet-mouse')
   i18n.httpRoutes.register(webServer.getServer('primary').http.server)
 
   webServer.listen('primary')
