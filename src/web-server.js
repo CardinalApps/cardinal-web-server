@@ -86,6 +86,7 @@ exports.create = (name, host = 'auto', port = 'auto') => {
  * Tells the HTTP server to start listening.
  */
 exports.listen = (name) => {
+  if (!name) throw new Error('listen() requires a server name')
   this.servers[name].http.listen()
 }
 
@@ -93,6 +94,7 @@ exports.listen = (name) => {
  * Returns a reference to a complete server object.
  */
 exports.getServer = (name) => {
+  if (!name) throw new Error('getServer() requires a server name')
   return this.servers[name]
 }
 
@@ -116,9 +118,9 @@ exports.getServerInfo = (name) => {
  * Function that registers the primary routes, aka the main server app (API
  * routes and all that stuff).
  */
-exports.registerPrimaryRoutes = (serverName, db) => {
+exports.registerPrimaryRoutes = (serverName, db, publicDir) => {
   // the serverName is probably also "primary"
   let server = this.getServer(serverName)
 
-  httpRoutes.register(server.http.server, db)
+  httpRoutes.register(server.http.server, db, publicDir)
 }

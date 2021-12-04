@@ -28,10 +28,19 @@ module.exports = class HttpServerService {
    */
   listen() {
     // error handler for the server (not for routes)
-    const { dialog } = require('electron') || {}
+    let electron
+    let isElectron
+
+    try {
+      electron = require('electron')
+      isElectron = true
+    } catch (e) {
+      isElectron = false
+    }
     
     this.server.server.on('error', (error) => {
-      if (dialog) {
+      if (isElectron) {
+        const { dialog } = electron
         dialog.showMessageBoxSync({
           'type': 'error',
           'message': `Cannot start the app because an error occured while creating the server.`,

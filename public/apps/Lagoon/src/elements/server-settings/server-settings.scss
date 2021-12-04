@@ -1,0 +1,116 @@
+server-settings {
+  display: block;
+
+  .slidetoggle {
+
+    .label {
+      width: auto;
+      height: auto;
+      padding: 0;
+      border: none;
+      margin-right: 10px;
+      cursor: pointer;
+      font: 14px var(--base-font);
+      color: var(--accent-color);
+      background: none;
+
+      span {
+        cursor: pointer;
+      }
+    }
+
+    .content {
+      margin-bottom: 10px !important;
+      font: 11px var(--base-font);
+      color: var(--color-faded);
+
+      code {
+        width: auto;
+        font-size: 11px;
+        margin-left: 0;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  form {
+
+    .field {
+      width: 100%;
+    }
+
+    select {
+      width: 100%;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+  
+      .group-title {
+        margin-bottom: 10px;
+        font-size: 13px;
+      }
+
+      .label-text {
+        font-size: 12px;
+      }
+    }
+
+    .form-select {
+
+      .select-outer {
+
+        &:after {
+          width: 12px;
+          height: 15px;
+          padding: 3px 0 0 9px;
+          top: 5px;
+          right: 5px;
+        }
+      }
+    }
+
+    .toggle-switch-field {
+
+      label {
+        width: 50px;
+      }
+    }
+
+    textarea {
+      height: 60px;
+      min-height: auto;
+      transition: height 200ms;
+
+      &:focus {
+        height: 160px;
+      }
+    }
+  }
+  
+  .slidetoggle {
+
+    .label {
+      margin-bottom: 10px;
+
+      span {
+        font-size: 12px;
+      }
+
+      i {
+        margin-right: 2px;
+        font-size: 11px;
+      }
+    }
+  }
+
+}

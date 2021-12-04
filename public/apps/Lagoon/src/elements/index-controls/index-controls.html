@@ -1,0 +1,161 @@
+<div class="inner">
+  <div class="big-button-row">
+    <div class="big-button-col">
+
+      <div class="big-button">
+        <i class="power fas fa-power-off"></i>
+      </div>
+
+    </div>
+
+    <div class="feedback-col">
+      <div class="feedback slice">
+        <div class="state">
+          <!-- STARTING -->
+          <div class="starting single-state">
+            <p>
+              {i18n{server.index-controls.state.starting}}
+              {inc{/images/loading.svg}}
+            </p>
+          </div>
+
+          <!-- SCANNING -->
+          <div class="scanning single-state">
+            <p>
+              {i18n{server.index-controls.state.scanning}}
+              {inc{/images/loading.svg}}
+            </p>
+
+            <p data-prop="scannedFile"></p>
+          </div>
+
+          <!-- SYNCING -->
+          <div class="syncing single-state">
+            <p>
+              {i18n{server.index-controls.state.syncing}}
+              {inc{/images/loading.svg}}
+            </p>
+
+            <div class="default-state">
+              {i18n{server.index-controls.syncing-message}}
+            </div>
+
+            <div class="added-file">
+              <span class="label">{i18n{server.index-controls.added-file-to-index}}</span>
+              <span data-prop="addedFile"></span>
+            </div>
+
+            <div class="removed-file">
+              <span class="label">{i18n{server.index-controls.removed-file-from-index}}</span>
+              <span data-prop="removedFile"></span>
+            </div>
+          </div>
+
+          <!-- IMPORTING -->
+          <div class="importing single-state">
+            <p>
+              {i18n{server.index-controls.state.importing}}
+              {inc{/images/loading.svg}}
+            </p>
+
+            <div class="progress">
+              <div class="fill"></div>
+            </div>
+
+            <div class="processed-file">
+              <span data-prop="processedLabel" class="label"></span>
+              <span data-prop="fileName"></span>
+            </div>
+
+            <div class="count">
+              <span class="current" data-prop="currentCount">1</span>
+              <span class="sep"> {i18n{of}} </span>
+              <span class="total" data-prop="totalCount"></span>
+            </div>
+
+            <div class="estimate">
+              <span data-prop="timeRemaining">{i18n{server.index-controls.calculating-time-remaining}}</span>
+            </div>
+          </div>
+          
+          <!-- PAUSED -->
+          <div class="paused single-state">{i18n{server.index-controls.state.paused}}</div>
+          
+          <!-- FINISHED -->
+          <div class="summary single-state">
+            <p class="summary-title">{i18n{server.index-controls.state.finished}}</p>
+
+            <div class="summary-item">
+              <p class="summary-line" title="{i18n{server.index-summary.new-files-explanation}}">
+                {i18n{server.index-summary.new-files}}
+                <span data-prop="numNew"></span>
+              </p>
+              <code class="file-list"></code>
+            </div>
+
+            <div class="summary-item">
+              <p class="summary-line" title="{i18n{server.index-summary.updated-files-explanation}}">
+                {i18n{server.index-summary.updated-files}}
+                <span data-prop="numUpdated"></span>
+              </p>
+              <code class="file-list"></code>
+            </div>
+            
+            <div class="summary-item">
+              <p class="summary-line" title="{i18n{server.index-summary.skipped-files-explanation}}">
+                {i18n{server.index-summary.skipped-files}}
+                <span data-prop="numSkipped"></span>
+              </p>
+              <code class="file-list"></code>
+            </div>
+
+            <div class="summary-item">
+              <p class="summary-line" title="{i18n{server.index-summary.deleted-files-explanation}}">
+                {i18n{server.index-summary.deleted-files}}
+                <span data-prop="numDeleted"></span>
+              </p>
+              <code class="file-list"></code>
+            </div>
+
+            <div class="summary-item">
+              <p class="summary-line" title="{i18n{server.index-summary.errored-files-explanation}}">
+                {i18n{server.index-summary.errored-files}}
+                <span data-prop="numErrored"></span>
+              </p>
+              <code class="file-list"></code>
+            </div>
+
+            <div class="summary-item">
+              <p class="summary-line" title="{i18n{server.index-summary.view-report}}">
+                <a href="#" class="btn file-path report-summary-path">
+                  {i18n{server.index-summary.view-report}}
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>{i18n{server.index-options.mode.opts}}</h3>
+  
+  <div class="options">
+    <form id="indexing-options" class="small">
+      <div class="option">
+        <label>
+          <span class="label" title="{i18n{server.index-options.mode.desc}}">{i18n{server.index-options.mode.name}}:</span>
+          <select name="mode">
+            <option value="quick">{i18n{server.index-options.mode.opt.quick}}</option>
+            <option value="deep">{i18n{server.index-options.mode.opt.deep}}</option>
+          </select>
+        </label>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="internal-error">
+  <p>{i18n{server.index-controls.state.internal-error}}</p>
+  <code class="internal-error-message" data-prop="internalErrorMessage"></code>
+</div>

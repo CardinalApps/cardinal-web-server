@@ -1,0 +1,71 @@
+web-apps {
+  display: block;
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+
+    i {
+      font-size: 13px;
+      color: var(--color-faded);
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  .app-icons {
+    display: flex;
+  }
+
+  .single-app {
+
+    .icon {
+
+    }
+
+    a {
+      display: block;
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+      transition: transform 100ms;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .name {
+      font: 500 11px var(--base-font);
+      color: var(--color-cream);
+      text-align: center;
+    }
+  }
+
+  .help {
+    padding: 20px 0 0;
+    display: none;
+
+    &.open {
+      display: block;
+    }
+
+    p {
+      margin-bottom: 10px;
+      line-height: 1em;
+      font: 11px var(--base-font);
+      color: var(--color-cream);
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    code {
+      font-size: 11px;
+      user-select: all;
+    }
+  }
+}

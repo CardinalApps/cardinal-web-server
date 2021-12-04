@@ -1,0 +1,18 @@
+[
+  {
+    "route": "/overview",
+    "view": "overview.html"
+  },
+  {
+    "route": "/indexer",
+    "view": "indexer.html"
+  },
+  {
+    "route": "/connected-devices",
+    "view": "connected-devices.html"
+  },
+  {
+    "route": "/settings",
+    "view": "settings.html"
+  }
+]

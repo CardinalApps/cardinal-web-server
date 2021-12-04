@@ -1,0 +1,98 @@
+{inc{/elements/connected-device/includes/header.html}}
+
+<div class="meta">
+  <div class="media-info">
+    <div class="music">
+
+      <p title="{i18n{track}}">
+        <i class="fas fa-music"></i>
+        <span data-prop="track"></span>
+      </p>
+
+      <p title="{i18n{album}}">
+        <i class="fas fa-compact-disc"></i>
+        <span data-prop="release"></span>
+      </p>
+      
+      <p title="{i18n{artist}}">
+        <i class="fas fa-users"></i>
+        <span data-prop="artist"></span>
+      </p>
+      
+      <p class="times">
+        <i class="fas fa-clock"></i>
+        <span data-prop="currentTime"></span> <span class="sep">/</span> <span data-prop="totalTime"></span>
+      </p>
+    </div>
+  </div>
+
+  <div class="meta-items">
+    <div class="playback-state meta-item">
+      <p class="playing">
+        <i class="fas fa-play-circle"></i>
+        {i18n{server.connected-devices.state.playing}}
+      </p>
+      
+      <p class="paused">
+        <i class="fas fa-pause-circle"></i>
+        {i18n{server.connected-devices.state.paused}}
+      </p>
+
+      <p class="stopped">
+        <i class="fas fa-stop-circle"></i>
+        {i18n{server.connected-devices.state.stopped}}
+      </p>
+    </div>
+
+    <div class="playback-method meta-item">
+      <p class="reference" title="{i18n{server.connected-devices.method.reference-desc}}">
+        <i class="fas fa-info-circle"></i>
+        <span>{i18n{server.connected-devices.method.reference-name}}</span>
+      </p>
+      <p class="stream" title="{i18n{server.connected-devices.method.stream-desc}}">
+        <i class="fas fa-info-circle"></i>
+        <span>{i18n{server.connected-devices.method.stream-name}}</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<footer class="controls">
+  <div class="control">
+    <a href="javascript:;" data-control="play">
+      <span tabindex="-1">
+        <i class="fas fa-play"></i>
+      </span>
+    </a>
+
+    <a href="javascript:;" data-control="pause">
+      <span tabindex="-1">
+        <i class="fas fa-pause"></i>
+      </span>
+    </a>
+  </div>
+
+  <div class="control">
+    <a href="javascript:;" data-control="prev">
+      <span tabindex="-1">
+        <i class="fas fa-step-backward"></i>
+      </span>
+    </a>
+  </div>
+
+  <div class="control">
+    <a href="javascript:;" data-control="next">
+      <span tabindex="-1">
+        <i class="fas fa-step-forward"></i>
+      </span>
+    </a>
+  </div>
+
+  <div class="control">
+    <a href="javascript:;" data-control="stop">
+      <span tabindex="-1">
+        <i class="fas fa-stop"></i>
+      </span>
+    </a>
+  </div>
+</footer>

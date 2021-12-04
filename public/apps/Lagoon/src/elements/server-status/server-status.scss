@@ -1,0 +1,181 @@
+server-status {
+  display: block;
+
+  /**
+   * Default state before server status can be determined
+   */
+  &[status="loading"] .status[data-status="loading"] {
+    display: flex;
+  }
+
+  /**
+   * While attempting to reach the server
+   */
+  &[status="connecting"] .status[data-status="connecting"] {
+    display: flex;
+  }
+
+  /**
+   * When the server is online
+   */
+  &[status="online"] {
+
+    .status[data-status="online"] {
+      display: flex;
+    }
+
+    .lights .green:after {
+      opacity: 1;
+    }
+
+    .info {
+      display: block;
+    }
+  }
+
+  /**
+   * When the server is offline
+   */
+  &[status="offline"] {
+
+    .status[data-status="offline"] {
+      display: flex;
+    }
+
+    .lights .red:after {
+      opacity: 1;
+    }
+  }
+
+  .current-status {
+    width: 100%;
+    display: flex; 
+    flex-wrap: wrap;
+
+    .status {
+      display: none;
+    }
+
+    .text {
+      width: calc(100% - 70px);
+      display: flex;
+      align-items: center;
+  
+      .message {
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
+        font: 400 12px var(--base-font);
+        color: var(--color-cream);
+        border-radius: var(--border-radius-small);
+  
+        .loading {
+           margin-left: 10px;
+           --color-stop: var(--color-faded);
+        }
+      }
+    }
+  }
+
+  .lights {
+    width: 70px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+
+    // default state of both lights before one is "switched on"
+    .green, .red {
+      width: 14px;
+      height: 14px;
+      margin: 0 5px;
+      border-radius: 100%;
+      opacity: 0.6;
+      position: relative;
+
+      &:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transition: all 75ms;
+      }
+    }
+
+    // before illumination
+    .green {
+      background: rgba(lime, 0.2);
+
+      // when illumunated
+      &:after {
+        box-shadow: 0 0 8px 3px lime;
+        background: linear-gradient(45deg, lime 30%, #c8ffc8);
+      }
+    }
+
+    // state before illumination
+    .red {
+      background: rgba(red, 0.5);
+
+      // when illumunated
+      &:after {
+        box-shadow: 0 0 9px 5px #fd1d1d;
+        background: linear-gradient(45deg, red 55%, #ff5050);
+      }
+    }
+  }
+
+  .info {
+    display: none;
+    padding-top: 25px;
+    font: 500 12px var(--base-font);
+    color: var(--color-cream);
+    position: relative;
+
+    &:before {
+      content: '';
+      height: 1px;
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      background: var(--base-lighter-1);
+    }
+
+    a {
+      color: var(--color-cream);
+
+      &:hover {
+        color: var(--accent-color);
+        cursor: pointer;
+      }
+    }
+
+    .row {
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .col {
+
+      &:first-of-type {
+        font-weight: 600;
+      }
+
+      i {
+        width: 20px;
+        font-size: 12px;
+      }
+    }
+  }
+}

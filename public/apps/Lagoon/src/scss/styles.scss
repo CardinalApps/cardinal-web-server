@@ -1,0 +1,100 @@
+@import './reset.scss';
+@import './fonts.scss';
+@import './functions.scss';
+@import './mixins.scss';
+
+/**
+ * Base CSS vars
+ */
+:root {
+  // fonts
+  --base-font: 'Open Sans';
+  --accent-font: 'Yantramanav';
+
+  // provide an accent color even though the app will inject the database one
+  --accent-color: #3793cf;
+
+  // colors shared by both light/dark
+  --almost-black: #080808;
+
+  // border radii
+  --border-radius-extra-small: 2px;
+  --border-radius-small: 4px;
+  --border-radius-medium: 9px;
+  --border-radius-large: 30px;
+
+  // animations
+  --dragndrop-transition-speed: 100ms;
+
+  // other common units
+  --letter-spacing: 0.05em;
+  --focus-space: 8px; // the minimum amounce of space needed around elements that are focusable
+  
+  --gutter: 10px;
+
+  --nav-bar-total-height: 46px;
+
+  --glow: 0 0 7px var(--accent-color);
+  --glow-red: 0 0 7px red;
+
+  // status indicators
+  --success: #3aaf39; // text/borders
+  --warning: yellow; // text/borders
+  --danger: #d24848; // text/borders
+  --success-bg: #3a703a; // backgrounds
+  --warning-bg: #efbe34; // backgrounds
+  --danger-bg: #a53737; // backgrounds
+
+  --box-shadow: 0 2px 2px 1px #0e0e0e;
+}
+
+/**
+ * Dark mode vars
+ */
+server-app[color-theme="dark"] {
+  --base-color: #272727;
+
+  // shades darker and lighter, used for background and borders
+  --base-darker-1: #222222;
+  --base-darker-2: #1d1d1d;
+  --base-darker-3: #151515;
+  --base-lighter-1: #2f2f2f;
+  --base-lighter-2: #363636;
+  --base-lighter-3: #3e3e3e;
+
+  // text colors
+  --color-slab: #000000; // base color, completley saturated
+  --color-blend: #4d4d4d; // text is very subtle on base color
+  --color-faded: #747474; // a little less subtle
+  --color-cream: #a7a7a7; // somewhere in between, good readability
+  --color-egg: #dadada; // brighter...
+  --color-opposite: #d8d8d8; // contrasts with base for striking readibility 
+  --color-extreme: #ffffff; // extreme contrast (100% black or white)
+
+  --error-text: rgb(218, 63, 63);
+
+  --scrollbar-color: #1b1b1b;
+
+  --defining-border: 1px solid #151515;
+}
+
+// general
+@import './general.scss';
+@import './animate.scss';
+@import './forms.scss';
+@import './win32.scss';
+
+// light theme
+@import './light-theme.scss';
+
+// components
+@import '../elements/server-app/server-app.scss';
+@import '../elements/server-status/server-status.scss';
+@import '../elements/server-actions/server-actions.scss';
+@import '../elements/server-settings/server-settings.scss';
+@import '../elements/index-controls/index-controls.scss';
+@import '../elements/index-stats/index-stats.scss';
+@import '../elements/index-directories/index-directories.scss';
+@import '../elements/connected-devices/connected-devices.scss';
+@import '../elements/connected-device/connected-device.scss';
+@import '../elements/web-apps/web-apps.scss';

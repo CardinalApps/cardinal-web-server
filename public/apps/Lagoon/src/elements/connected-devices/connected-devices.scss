@@ -1,0 +1,28 @@
+connected-devices {
+  display: block;
+
+  &[num-devices="0"] {
+    
+    .no-devices {
+      display: block;
+    }
+  }
+
+  &.error {
+
+    .error-message {
+      padding-top: 20px;
+      font: 14px var(--base-font);
+      text-align: center;
+      color: var(--color-cream);
+    }
+  }
+
+  .no-devices {
+    padding-top: 20px;
+    font: 12px var(--base-font);
+    color: var(--color-cream);
+    text-align: center;
+    display: none;
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "lagoon",
+  "description": "Lagoon is the theme for the desktop server app.",
+  "version": "0.1.0",
+  "author": "somebeaver",
+  "private": true,
+  "dependencies": {
+    "bridge.js": "github:somebeaver/Bridge.js",
+    "cardinal-forms": "github:somebeaver/cardinal-forms",
+    "cardinal-shared-components": "github:somebeaver/cardinal-shared-components",
+    "double-u": "github:somebeaver/double-u",
+    "html.js": "github:somebeaver/html.js",
+    "i18n.js": "github:somebeaver/i18n.js",
+    "lowrider.js": "github:somebeaver/Lowrider.js",
+    "router.js": "github:somebeaver/Router.js",
+    "sqleary.js": "github:somebeaver/sqleary.js"
+  }
+}

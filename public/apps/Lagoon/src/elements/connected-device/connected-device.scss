@@ -1,0 +1,218 @@
+connected-device {
+  margin-bottom: 20px;
+  overflow: hidden;
+  display: block;
+  border-radius: var(--border-radius-small);
+  background-color: var(--base-darker-1);
+
+  &[app="cardinalserver"] {
+
+    .meta {
+
+      p {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  &[playback-media-type="music"] {
+    .media-info .music { display: block; }
+    .device-subtitle.music { display: block; }
+  }
+
+  &[playback-state="playing"] {
+    .playback-state .playing { display: block; }
+    .playback-state .stopped { display: none; }
+    .controls [data-control="pause"] { display: block; }
+  }
+  
+  &[playback-state="paused"] {
+    .playback-state .paused { display: block; }
+    .playback-state .stopped { display: none; }
+    .controls [data-control="play"] { display: block; }
+  }
+
+  &[playback-state="stopped"] {
+    .media-info { display: none; }
+    .playback-state .stopped { display: block; }
+    .controls { display: none; }
+
+    // hide all meta items except the playback state
+    .meta-item:not(.playback-state) {
+      display: none;
+    }
+  }
+
+  &[playback-method="reference"] {
+    .playback-method .reference { display: block; }
+  }
+  &[playback-method="stream"] {
+    .playback-method .stream { display: block; }
+  }
+
+  &.error {
+
+    .error-message {
+      padding-top: 20px;
+      font: 12px var(--base-font);
+      text-align: center;
+      color: var(--color-cream);
+    }
+  }
+
+  header {
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--base-lighter-1);
+  }
+
+  .icon {
+    width: 40px;
+
+    img {
+      display: block;
+    }
+  }
+
+  .client-app {
+    padding-left: 8px;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .name {
+      font: 600 12px var(--base-font);
+      color: var(--color-egg);
+    }
+
+    .connection {
+      font: 400 11px var(--base-font);
+      color: var(--color-cream);
+
+      > span {
+
+        &:last-of-type:after {
+          display: none;
+        }
+
+        &:after {
+          content: '-';
+          margin: 0 4px;
+          font: 600 11px var(--base-font);
+          color: var(--color-faded);
+        }
+      }
+    }
+  }
+
+  .device-subtitle {
+    margin-bottom: 7px;
+    font: 600 12px var(--base-font);
+    color: var(--color-cream);
+    display: none;
+    text-transform: uppercase;;
+  }
+
+  .media-info {
+    
+    p {
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font: 12px var(--base-font);
+      color: var(--color-cream);
+    }
+
+    i {
+      width: 16px;
+      margin-right: 7px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--color-faded);
+    }
+  }
+  
+  .meta {
+    padding: 0 12px;
+    font: 12px var(--base-font);
+    color: var(--color-cream);
+  }
+
+  .playback-state {
+
+    .playing, .paused {
+      display: none;
+    }
+  }
+
+  .playback-method {
+
+    .reference {
+      display: none;
+    }
+  }
+
+  .meta-items {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .meta-item {
+    margin-right: 10px;
+    padding: 7px 10px;
+    border-radius: var(--border-radius-small);
+    font: 600 11px var(--base-font);
+    background: var(--base-darker-2);
+
+    i {
+      margin-right: 5px;
+      font-size: 12px;
+    }
+  }
+
+  .times {
+
+    .sep {
+      margin: 0 5px;
+    }
+  }
+
+  .controls {
+    padding: 8px 20%;
+    border-top: 1px solid var(--defining-border);
+    display: flex;
+    border-radius: var(--border-radius-small);
+    justify-content: space-evenly;
+    background: var(--base-darker-2);
+
+    .control {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      i {
+        font-size: 12px;
+        color: var(--color-egg);
+        transition: all 75ms;
+
+        &:hover {
+          color: var(--accent-color);
+        }
+
+        &:active {
+          transform: scale(0.92);
+        }
+      }
+    }
+
+    [data-control="play"],
+    [data-control="pause"] {
+      display: none;
+    }
+  }
+}

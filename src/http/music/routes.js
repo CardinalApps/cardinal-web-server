@@ -1,7 +1,7 @@
 const path = require('path')
 const fastifyStatic = require('fastify-static')
 
-exports.register = (server, db) => {
+exports.register = (server, db, publicDir) => {
   /**
    * Static path for cached music artwork.
    */
@@ -41,7 +41,7 @@ exports.register = (server, db) => {
    * asar archive.
    */
   server.register(fastifyStatic, {
-    'root': path.join(process.mainModule.path, 'src', 'renderer', 'public', 'themes', 'Andromeda', 'src'),
+    'root': path.join(publicDir, 'apps', 'Andromeda', 'src'),
     'prefix': '/music',
     'prefixAvoidTrailingSlash': false,
     'decorateReply': false,
@@ -54,14 +54,14 @@ exports.register = (server, db) => {
    * In prod, this is not served statically, and the modules that live in
    * the theme's node_modules get bundled into the main client bundle.
    */
-  if (process.env.HYDRA_RUN_MODE === 'source') {
+  //if (process.env.HYDRA_RUN_MODE === 'source') {
     server.register(fastifyStatic, {
-      'root': path.join(process.mainModule.path, 'src', 'renderer', 'public', 'themes', 'Andromeda', 'node_modules'),
+      'root': path.join(publicDir, 'apps', 'Andromeda', 'node_modules'),
       'prefix': '/node_modules',
       'prefixAvoidTrailingSlash': true,
       'decorateReply': false
     })
-  }
+  //}
 
   /**
    * **In prod only**, redirect requests for andromeda.js to bundle.js. This is
@@ -72,10 +72,10 @@ exports.register = (server, db) => {
    * this redirect ever breaks, the user will see a 404 instead of leaked source
    * code.
    */
-  if (process.env.HYDRA_RUN_MODE === 'bundle') {
-    server.get('/music/andromeda.js', (request, response) => {
-      response.code(301)
-      response.redirect('/music/bundle.js')
-    })
-  }
+  // if (process.env.HYDRA_RUN_MODE === 'bundle') {
+  //   server.get('/music/andromeda.js', (request, response) => {
+  //     response.code(301)
+  //     response.redirect('/music/bundle.js')
+  //   })
+  // }
 }

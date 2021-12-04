@@ -1,0 +1,1 @@
+console.log('You should be serving /src/index.html to browsers.')

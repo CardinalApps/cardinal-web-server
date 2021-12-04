@@ -1,0 +1,47 @@
+server-app {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background: var(--base-color);
+
+  &[os="darwin"] {
+
+    .darwin-only {
+      display: block;
+  
+      &.inline {
+        display: inline;
+      }
+    }
+  
+    .win32-only {
+      display: none !important;
+    }
+  }
+
+  &[os="win32"] {
+
+    .win32-only {
+      display: block;
+  
+      &.inline {
+        display: inline;
+      }
+    }
+  
+    .darwin-only {
+      display: none !important;
+    }
+  }
+
+  .slice {
+    margin: 0 var(--gutter);
+    margin-bottom: 15px;
+
+    .inner {
+      padding: 12px;
+      border-radius: var(--border-radius-medium);
+      background: var(--base-darker-1);
+    }
+  }
+}

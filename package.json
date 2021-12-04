@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "HTTP & WebSocket server microservice used in Cardinal apps.",
   "author": "somebeaver",
+  "scripts": {
+    "start": "node test/launch.test.js --APP_ROOT=.."
+  },
   "dependencies": {
     "cardinal-database": "github:CardinalApps/cardinal-database",
     "cardinal-i18n": "github:CardinalApps/cardinal-i18n",
@@ -11,6 +14,7 @@
     "fastify": "^3.11.0",
     "fastify-static": "^4.2.2",
     "ip": "^1.1.5",
+    "tap": "^15.1.5",
     "ua-parser-js": "^0.7.28",
     "ws": "^7.4.3"
   }

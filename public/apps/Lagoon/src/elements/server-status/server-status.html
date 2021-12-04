@@ -1,0 +1,68 @@
+<h2 class="title">{i18n{server.status.title}}</h2>
+
+<div class="inner">
+  <div class="current-status">
+    <div class="text">
+      <div class="status" data-status="loading">
+        <p class="message">{i18n{server.status.loading}}</p>
+      </div>
+      
+      <div class="status" data-status="connecting">
+        <p class="message">
+          {i18n{server.status.connecting}}
+          {inc{/images/loading.svg}}
+        </p>
+      </div>
+      
+      <div class="status" data-status="online">
+        <p class="message">{i18n{server.status.online}}</p>
+      </div>
+      
+      <div class="status" data-status="offline">
+        <p class="message">{i18n{server.status.offline}}</p>
+      </div>
+    </div>
+
+    <div class="lights">
+      <div class="green"></div>
+      <div class="red"></div>
+    </div>
+  </div>
+
+  <div class="info">
+    <!-- server location -->
+    <div class="row">
+      <div class="col">
+        <i class="fas fa-home"></i>
+        {i18n{server.location}}
+      </div>
+      <div class="col">
+        <span class="url" tabindex="-1">
+          <a href="#" class="external external-link-icon-left" data-prop="url"></a>
+        </span>
+      </div>
+    </div>
+
+    <!-- server version -->
+    <div class="row">
+      <div class="col">
+        <i class="fas fa-code-branch"></i>
+        {i18n{version}}
+      </div>
+      <div class="col">
+        <span data-prop="version"></span>
+      </div>
+    </div>
+
+    <!-- uptime -->
+    <div class="row">
+      <div class="col">
+        <i class="fas fa-running" style="font-size: 14px;"></i>
+        {i18n{server.uptime}}
+      </div>
+      <div class="col">
+        <span class="uptime" data-prop="uptime"></span>
+      </div>
+    </div>
+  </div>
+</div>

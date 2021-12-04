@@ -1,0 +1,35 @@
+#single-playlist-layout {
+  padding-top: var(--focus-space);
+
+  .playlist-meta {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .play-now {
+    display: flex;
+    align-items: center;
+
+    h3 {
+      margin-bottom: 0;
+    }
+
+    play-button {
+      margin-right: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  #single-playlist-layout {
+
+    .play-now {
+      justify-content: center;
+    }
+
+    .playlist-meta {
+      margin-bottom: 15px;
+    }
+  }
+}

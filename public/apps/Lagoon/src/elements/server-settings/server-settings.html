@@ -1,0 +1,57 @@
+<div class="settings-panel">
+  <form id="app-settings-form" method="post">
+    <!-- General -->
+    <div class="slice">
+      <h2>{i18n{settings.tab-name-general}}</h2>
+      <div class="inner">
+        <!-- Language -->
+        {{settings-field/general/lang}}
+
+        <!-- Confirm when quitting Electron -->
+        {{settings-field/general/confirm-electron-quit}}
+      </div>
+    </div>
+
+    <!-- Updates -->
+    <div class="slice">
+      <h2>{i18n{settings.tab-name-updates}}</h2>
+      <div class="inner">
+        <!-- Updates -->
+        {{settings-field/general/updates}}
+      </div>
+    </div>
+
+    <!-- Window -->
+    <div class="slice">
+      <h2>{i18n{settings.tab-name-window}}</h2>
+      <div class="inner">
+        <!-- Auto close on blur -->
+        {inc{/elements/server-settings/templates/window/autoclose.html}}
+      </div>
+    </div>
+
+    <!-- Theme -->
+    <div class="slice">
+      <h2>{i18n{settings.tab-name-theme}}</h2>
+      <div class="inner">
+        <!-- Color theme -->
+        {{settings-field/theme/color-theme}}
+
+        <!-- Swatches -->
+        {{settings-field/theme/swatches}}
+
+        <!-- Custom CSS -->
+        {{settings-field/theme/custom-css}}
+      </div>
+    </div>
+
+    <!-- Advanced -->
+    <div class="slice">
+      <h2>{i18n{settings.tab-name-advanced}}</h2>
+      <div class="inner">
+        <!-- Developer -->
+        {{settings-field/advanced/developer}}
+      </div>
+    </div>
+  </form>
+</div>

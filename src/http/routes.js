@@ -9,14 +9,16 @@ const mediaCrud = require('cardinal-media-crud')
 const { apiResponse } = require('../api-io.js')
 const { onSendHook, preHandlerHook } = require('./hooks/')
 const musicRoutes = require('./music/routes.js')
+const package = require('../../package.json')
 
 /**
  * Registers all RESTful routes and hooks for the server.
  * 
  * @param {object} serverObj - The server object.
  * @param {DatabaseService} db - The DatabaseService instance.
+ * @param {string} db - The path to the public dir.
  */
-exports.register = (server, db) => {
+exports.register = (server, db, publicDir) => {
   /**
    * Register hooks.
    */
@@ -30,7 +32,7 @@ exports.register = (server, db) => {
    * connectable from their device.
    */
   server.get('/', (request, response) => {
-    let template = path.join(process.mainModule.path, 'src', 'renderer', 'public', 'themes', 'ServerLanding', 'src', 'index.html')
+    let template = path.join(publicDir, 'apps', 'ServerLanding', 'src', 'index.html')
     let stream = fs.createReadStream(template)
 
     response.type('text/html').send(stream)
@@ -53,7 +55,7 @@ exports.register = (server, db) => {
    * Returns the version of the server app.
    */
   server.get('/api/version', async (request, response) => {
-    return process.env.HYDRA_SERVER_VERSION
+    return package.version
   })
 
   /**
@@ -135,7 +137,7 @@ exports.register = (server, db) => {
   /**
    * Routes for web apps.
    */
-  musicRoutes.register(server, db)
+  musicRoutes.register(server, db, publicDir)
 
   /**
    * RESTful API routes.
