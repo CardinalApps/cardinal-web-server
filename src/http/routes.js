@@ -137,7 +137,7 @@ exports.register = (server, db, publicDir, dbName) => {
   /**
    * Routes for web apps.
    */
-  musicRoutes.register(server, db, publicDir)
+  musicRoutes.register(server, db, publicDir, dbName)
 
   /**
    * RESTful API routes.
