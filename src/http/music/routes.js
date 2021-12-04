@@ -56,8 +56,8 @@ exports.register = (server, db, publicDir, dbName) => {
    */
   //if (process.env.HYDRA_RUN_MODE === 'source') {
     server.register(fastifyStatic, {
-      'root': path.join(publicDir, 'apps', 'Andromeda', 'node_modules'),
-      'prefix': '/node_modules',
+      'root': path.join(publicDir, 'apps', 'Andromeda', 'modules'),
+      'prefix': '/modules',
       'prefixAvoidTrailingSlash': true,
       'decorateReply': false
     })
