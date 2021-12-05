@@ -42,15 +42,9 @@ exports.create = (name, host = 'auto', port = 'auto') => {
   if (name in this.servers) throw new Error(`Cannot create server with name ${name} because it is already used`)
   
   if (host === 'auto') {
-    // when running on the users machine, get the machines public IP
-    if (process.env.HYDRA_RUN_MODE === 'bundle') {
-      host = nodeIp.address()
-    }
-    // when running as source code (aka dev mode) use localhost to avoid
-    // conflict with the running production app on the same machine
-    else if (process.env.HYDRA_RUN_MODE === 'source') {
-      host = 'localhost'
-    }
+    host = nodeIp.address()
+  } else {
+    host = 'localhost'
   }
 
   // uncomment to use prod IP in dev
