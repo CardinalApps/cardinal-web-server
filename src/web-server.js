@@ -32,12 +32,11 @@ exports.servers = {}
  * @param {(number|string)} [port] - Port that the HTTP server should listen on.
  * Defaults to 'auto'. The WebSocket sever will automatically use the HTTP port
  * + 1.
- * @param {string} [httpDriver] - The npm library to use to handle the HTTP
- * server. Defaults to `fastify`. New drivers must be installed with npm first.
- * The WebSockets server always uses `ws.js`.
+ * @param {object} [options] - Additional options.
+ * @param {string} [options.imageHost] - Override the HTTP host used for images.
  * @returns {object} Returns the web server object.
  */
-exports.create = (name, host = 'auto', port = 'auto') => {
+exports.create = (name, host = 'auto', port = 'auto', options = {}) => {
   if (!name) throw new Error('Name is required')
   if (name in this.servers) throw new Error(`Cannot create server with name ${name} because it is already used`)
   
@@ -65,7 +64,7 @@ exports.create = (name, host = 'auto', port = 'auto') => {
 
   // create http and ws server instances
   try {
-    serverObj.http = newHttpServerService(host, port)
+    serverObj.http = newHttpServerService(host, port, options)
     serverObj.ws = newWebSocketService(host, port + 1)
   } catch (error) {
     throw error

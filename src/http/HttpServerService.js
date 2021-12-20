@@ -1,13 +1,14 @@
 const fastifyServerFactory = require('fastify')
 
 module.exports = class HttpServerService {
-  constructor(host, port) {
+  constructor(host, port, options) {
     this.server = fastifyServerFactory({
       //'logging': true
     })
 
     this.host = host
     this.port = port
+    this.options = options
     this.scheme = 'http://'
     this.startTime = Date.now()
 

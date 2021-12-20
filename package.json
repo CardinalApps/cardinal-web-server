@@ -1,6 +1,6 @@
 {
   "name": "cardinal-web-server",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "HTTP & WebSocket server microservice used in Cardinal apps.",
   "author": "somebeaver",
   "scripts": {

@@ -34,7 +34,7 @@ exports.sanitizeArtwork = function(artworkObj, staticRoot = 'image-cache') {
   // change all thumbnail paths from local paths to HTTP static paths
   for (let [thumbSize, thumbObj] of Object.entries(artworkObj.thumbs)) {
     let fileName = path.parse(thumbObj.thumb_file).base
-    thumbObj.thumb_file = `${serverInfo.http.scheme}${serverInfo.http.host}:${serverInfo.http.port}/${staticRoot}/${fileName}`
+    thumbObj.thumb_file = `${serverInfo.http.scheme}${serverInfo.http.options?.imageHost || serverInfo.http.host}:${serverInfo.http.port}/${staticRoot}/${fileName}`
   }
   
   return artworkObj
